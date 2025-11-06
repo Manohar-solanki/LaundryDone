@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Book a laundry pickup - simple form to schedule your laundry service.">
+    <title>Book a Pickup - Laundry Done Right</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <a href="index.html" class="logo">
+                    <span class="logo-icon">🧺</span>
+                    <span class="logo-text">LaundryDone</span>
+                </a>
+                <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="pricing.html">Pricing</a></li>
+                    <li><a href="how-it-works.html">How It Works</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="booking.html" class="btn-primary">Book Pickup</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Book a Pickup</h1>
+            <p>Fill out the form below and we'll schedule your laundry pickup</p>
+        </div>
+    </section>
+
+    <!-- Booking Form -->
+    <section class="booking-section">
+        <div class="container">
+            <div class="booking-form-container">
+                <h2>Schedule Your Pickup</h2>
+                <p style="text-align: center; color: var(--text-light); margin-bottom: 2rem;">We'll contact you to confirm the details and pickup time.</p>
+                
+                <form id="booking-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="full-name">Full Name *</label>
+                            <input type="text" id="full-name" name="full-name" required placeholder="Enter your full name">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number *</label>
+                            <input type="tel" id="phone" name="phone" required placeholder="+91 98765 43210" pattern="[0-9+\s-]{10,}">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" placeholder="your.email@example.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="address">Pickup Address *</label>
+                        <textarea id="address" name="address" required placeholder="Enter your complete address including area, city, and landmark"></textarea>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="pickup-date">Preferred Pickup Date *</label>
+                            <input type="date" id="pickup-date" name="pickup-date" required min="">
+                        </div>
+                        <div class="form-group">
+                            <label for="pickup-time">Preferred Pickup Time *</label>
+                            <select id="pickup-time" name="pickup-time" required>
+                                <option value="">Select time</option>
+                                <option value="09:00-10:00">9:00 AM - 10:00 AM</option>
+                                <option value="10:00-11:00">10:00 AM - 11:00 AM</option>
+                                <option value="11:00-12:00">11:00 AM - 12:00 PM</option>
+                                <option value="12:00-13:00">12:00 PM - 1:00 PM</option>
+                                <option value="13:00-14:00">1:00 PM - 2:00 PM</option>
+                                <option value="14:00-15:00">2:00 PM - 3:00 PM</option>
+                                <option value="15:00-16:00">3:00 PM - 4:00 PM</option>
+                                <option value="16:00-17:00">4:00 PM - 5:00 PM</option>
+                                <option value="17:00-18:00">5:00 PM - 6:00 PM</option>
+                                <option value="18:00-19:00">6:00 PM - 7:00 PM</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Service Type *</label>
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="service-wash-fold" name="service-type" value="Wash & Fold">
+                                <label for="service-wash-fold">Wash & Fold</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="service-dry-cleaning" name="service-type" value="Dry Cleaning">
+                                <label for="service-dry-cleaning">Dry Cleaning</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="service-ironing" name="service-type" value="Ironing & Pressing">
+                                <label for="service-ironing">Ironing & Pressing</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="service-special" name="service-type" value="Special Care">
+                                <label for="service-special">Special Care</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="instructions">Special Instructions</label>
+                        <textarea id="instructions" name="instructions" placeholder="Any special requests? (e.g., Extra starch, Check for stains, Handle with care, etc.)"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="estimated-weight">Estimated Weight/Items</label>
+                        <input type="text" id="estimated-weight" name="estimated-weight" placeholder="e.g., 10kg or 5 items">
+                    </div>
+
+                    <button type="submit" class="btn btn-primary form-submit">Submit Booking Request</button>
+                    
+                    <div class="form-success" id="form-success">
+                        <strong>Thank you!</strong> Your booking request has been submitted. We'll contact you shortly to confirm the details and schedule your pickup.
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Prefer to Call?</h2>
+                <p>You can also book your pickup by calling us directly</p>
+                <div class="cta-buttons">
+                    <a href="tel:+919876543210" class="btn btn-large btn-primary">Call Now</a>
+                    <a href="https://wa.me/919876543210" class="btn btn-large btn-outline">WhatsApp Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>LaundryDone</h3>
+                    <p>Professional laundry and dry-cleaning services at your doorstep. Eco-friendly, reliable, and convenient.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook">Facebook</a>
+                        <a href="#" aria-label="Instagram">Instagram</a>
+                        <a href="https://wa.me/919876543210" aria-label="WhatsApp">WhatsApp</a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="pricing.html">Pricing</a></li>
+                        <li><a href="how-it-works.html">How It Works</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="booking.html">Book Pickup</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <ul class="contact-info">
+                        <li>📞 <a href="tel:+919876543210">+91 98765 43210</a></li>
+                        <li>📧 <a href="mailto:info@laundrydone.com">info@laundrydone.com</a></li>
+                        <li>📍 Jaipur, Rajasthan</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 LaundryDone. All rights reserved. | <a href="#">Privacy Policy</a></p>
+                <p class="privacy-note">We never share your information with third parties.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Action Buttons -->
+    <div class="floating-actions">
+        <a href="tel:+919876543210" class="floating-btn call-btn" aria-label="Call us">
+            📞
+        </a>
+        <a href="https://wa.me/919876543210" class="floating-btn whatsapp-btn" aria-label="Chat on WhatsApp">
+            💬
+        </a>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Set minimum date to today
+        document.addEventListener('DOMContentLoaded', function() {
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById('pickup-date').setAttribute('min', today);
+        });
+
+        // Form validation for service type
+        document.getElementById('booking-form').addEventListener('submit', function(e) {
+            const serviceCheckboxes = document.querySelectorAll('input[name="service-type"]:checked');
+            if (serviceCheckboxes.length === 0) {
+                e.preventDefault();
+                alert('Please select at least one service type.');
+                return false;
+            }
+        });
+    </script>
+</body>
+</html>
+
